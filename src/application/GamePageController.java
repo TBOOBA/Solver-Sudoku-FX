@@ -549,7 +549,7 @@ public class GamePageController {
 				
 				 Move solution = null;
 				    boolean stop=false;
-				   
+				   history.clearAll();
 					int count = 0;
 					while(!stop) {
 						
@@ -597,8 +597,9 @@ public class GamePageController {
 							 solution = new Jellyfish(grid).getSolution();
 						 }
 						 if(solution!=null && solution.getActions().size() != 0) {
+							 
 							 solution.act();
-							 history.add(solution);
+							 
 						 }
 							 
 						
@@ -758,7 +759,10 @@ public class GamePageController {
 					 if(solution==null || solution.getActions().size() == 0) {
 						 solution = new Jellyfish(grid).getSolution();
 					 }
-					 if(solution!=null && solution.getActions().size() != 0) solution.act();
+					 if(solution!=null && solution.getActions().size() != 0) {
+						 history.add(solution);
+						 solution.act()
+						 ;}
 					
 					/* if(solution==null) {
 						 stop=true;
@@ -924,18 +928,41 @@ public class GamePageController {
 
 			@Override
 			public void handle(MouseEvent arg0) {
+				
+				if(!history.tailIsEmpty()) {
+					history.goForward();
 				Move mv = history.getCurrentElement();
 				mv.act();
-				Coordinate coor = mv.getCell().getCoordinate();
-				if(! mv.getActions().containsKey(Move.REMOVE_VALUE)) {
-					
+				
+				
+				if( mv.getActions().containsKey(Move.SET_VALUE)) {
+					Coordinate coor = mv.getCell().getCoordinate();
+					String str = mv.getActions().get(Move.SET_VALUE).getKey(mv.getCell());
+					candidatesToValue((CustomPane)cellPanes[coor.getX()][coor.getY()], str);
+				}
+				if(mv.getActions().containsKey(Move.REMOVE_VALUE)) {
+					Coordinate coor = mv.getCell().getCoordinate();
 					valueTocandidates((CustomPane)cellPanes[coor.getX()][coor.getY()],false);
-			}
-			else {
-				candidatesToValue((CustomPane)cellPanes[coor.getX()][coor.getY()], mv.getCell().getValue());
-			}
-				history.goForward();
-			}
+				}
+				if(mv.getActions().containsKey(Move.ELIMINATE_CANDIDAT)) {
+					for(helpers.Node<String,Cell> node: mv.getActions().get(Move.ELIMINATE_CANDIDAT).getMap()) {
+					String candidat = node.getKey();
+					int X = node.getValue().getCoordinate().getX();
+					int Y = node.getValue().getCoordinate().getY();
+					
+					if(!(cellPanes[X][Y].getChildren().get(0) instanceof DefaultTextField)) {
+						
+						CandidatGridPane cgp = (CandidatGridPane)cellPanes[X][Y].getChildren().get(0);
+						cgp.appendCandidat(candidat);
+										
+					}
+				}
+				
+			
+				
+				}
+				}
+				}
 	    	
 	    });
 	    
@@ -944,21 +971,38 @@ public class GamePageController {
 
 			@Override
 			public void handle(MouseEvent arg0) {
+				if(history.getCurrentPosition()!=0) {
 				Move mv = history.getCurrentElement();
 				mv.act();
+				
+			if( mv.getActions().containsKey(Move.SET_VALUE)) {
 				Coordinate coor = mv.getCell().getCoordinate();
-			if(! mv.getActions().containsKey(Move.REMOVE_VALUE)) {
-			
 					valueTocandidates((CustomPane)cellPanes[coor.getX()][coor.getY()],false);
 			}
-			else {
+			if(mv.getActions().containsKey(Move.REMOVE_VALUE)) {
+				Coordinate coor = mv.getCell().getCoordinate();
 				candidatesToValue((CustomPane)cellPanes[coor.getX()][coor.getY()], mv.getCell().getValue());
 			}
+			if(mv.getActions().containsKey(Move.ELIMINATE_CANDIDAT)) {
+				for(helpers.Node<String,Cell> node: mv.getActions().get(Move.ELIMINATE_CANDIDAT).getMap()) {
+				String candidat = node.getKey();
+				int X = node.getValue().getCoordinate().getX();
+				int Y = node.getValue().getCoordinate().getY();
+				
+				if(!(cellPanes[X][Y].getChildren().get(0) instanceof DefaultTextField)) {
+					
+					CandidatGridPane cgp = (CandidatGridPane)cellPanes[X][Y].getChildren().get(0);
+					cgp.clearnCandidat(candidat);
+									
+				}
+			}
+				}
 				
 				history.goBackward();
 				 
 				
 			}
+				}
 	    	
 	    });
 	}

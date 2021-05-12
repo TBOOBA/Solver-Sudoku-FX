@@ -55,7 +55,7 @@ public class Move extends AbstractAction implements Action {
 			for(Node<String,Cell> node :actions.get(v).getMap()) {
 				switch (v) {
 				case ELIMINATE_CANDIDAT: {
-					 node.getValue();
+					 
 					node.getValue().eliminateCandidate(node.getKey());
 					break;
 				}
@@ -93,21 +93,27 @@ public class Move extends AbstractAction implements Action {
 		for(String v :actions.keySet()) {
 			
 			for(Node<String,Cell> node :actions.get(v).getMap()) {
-				if(v==ELIMINATE_CANDIDAT) {
-					 node.getValue();
+				switch (v) {
+				case ELIMINATE_CANDIDAT: {
 					
-					node.getValue().addCandidate(node.getKey());}
-				if(v==SET_VALUE) {
-					node.getValue().removeValue();
-				    //node.getValue().unLock();
-				    //on peut optimiser cette ligne on ajoutant le candidat dans les ca où il est été supprimmer 
-				   // node.getValue().getGrid().generateAllCandidat();
-				    }
-				if(v==REMOVE_VALUE) {
-				node.getValue().setValue(node.getKey());
-			    node.getValue().lock();
-			    node.getValue().getGrid().generateAllCandidat();
+					node.getValue().addCandidate(node.getKey());
+					break;
 				}
+				case SET_VALUE: {
+					node.getValue().removeValue();
+				    break;
+				}
+				case REMOVE_VALUE: {
+					node.getValue().setValue(node.getKey());
+				    node.getValue().lock();
+				    node.getValue().getGrid().generateAllCandidat();
+				   break;
+				}
+				default:
+					throw new IllegalArgumentException("Unexpected value: " + v);
+					
+				}
+			
 			} 
 		} 
 	}
