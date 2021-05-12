@@ -37,6 +37,14 @@ public class StdCell implements Cell {
 		pcs = new PropertyChangeSupport(this);
 		isLocked = false;
 	}
+	public StdCell(Cell cell) {
+		this.currentValue = cell.getValue().toString();
+		this.coord = cell.getCoordinate();
+		this.candidates = cell.getCandidates();
+		this.currentGrid = cell.getGrid();
+		pcs = new PropertyChangeSupport(this);
+		isLocked = cell.isLocked();
+	}
 	
 	// REQUETES
 
@@ -128,12 +136,18 @@ public class StdCell implements Cell {
 
 	@Override
 	public void removeValue() {
-		if (!isLocked) {
-			String oldValue = this.currentValue;
-			this.currentValue = null;
-			pcs.firePropertyChange("VALUE_REMOVED", 
-					new PropertyChangeCell(this, oldValue, null), 
-					new PropertyChangeCell(this, null, null));
+		
+		if (isLocked) {
+			
+			if(currentValue!=null) {
+				char c = currentValue.charAt(0);
+				String oldValue= ""+c;
+				this.currentValue = null;
+				pcs.firePropertyChange("VALUE_REMOVED", 
+						new PropertyChangeCell(this, oldValue, null), 
+						new PropertyChangeCell(this, null, null));
+			}
+			
 		}
 	}
 
