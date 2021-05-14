@@ -2,6 +2,6 @@
 hella project
 
 # Latest Updates
-combining the two sides of the project (front & back) adding the checkerFactory to check the right input of the cell
+the application mostly done undo, redo, save, load, load by difficulty. 
 # upcoming Updates 
-adding the history mechanisim to the project ...
+the checker factory must set something to remove the highlight over the wrong or correct cell after the hint is showed most upcoming updates are about the front-end part wich we have some small bugs to resolve.
