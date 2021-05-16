@@ -20,7 +20,7 @@ import model.StdGrid;
  * @author Nassim
  *
  */
-public class Burma  implements IHeuristic {
+public class Burma   {
 
 	// CONSTANTES
 	public static final int MIN_NB_CAND = 6;
@@ -45,7 +45,6 @@ public class Burma  implements IHeuristic {
 	
 	// REQUETES
 
-	@Override
 	public Move getSolution() {
 
 		for (String cand : StdGrid.defaultValueSet()) {
@@ -355,9 +354,6 @@ public class Burma  implements IHeuristic {
 		return false;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 
+	
 }

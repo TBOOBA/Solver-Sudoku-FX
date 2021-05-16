@@ -11,7 +11,7 @@ import model.Coordinate;
 import model.Grid;
 
 
-public class UniqueCandidate  implements IHeuristic {
+public class UniqueCandidate  {
 
 	// ATTRIBUTS
 	
@@ -26,7 +26,7 @@ public class UniqueCandidate  implements IHeuristic {
 
 	}
 	
-	@Override
+	 
 	public Move getSolution() {
 		Move move = new Move();
 		
@@ -162,12 +162,6 @@ public class UniqueCandidate  implements IHeuristic {
 	
 	
 
-
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 }

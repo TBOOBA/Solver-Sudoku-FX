@@ -14,7 +14,7 @@ import model.Grid;
 import model.StdGrid;
 
 
-public class Xwing  implements IHeuristic {
+public class Xwing  {
 
 	private Map<String, Integer> mapStrings;
 	private Map<Integer, String> mapValues;
@@ -29,7 +29,7 @@ public class Xwing  implements IHeuristic {
 		setMapValues(StdGrid.defaultValueSet());
 	}
 
-	@Override
+	 
 	public Move getSolution() {
 		Move sol = null;
 		if ((sol = checkFirstSolution()) != null && sol.getActions().size() > 0) {
@@ -199,11 +199,6 @@ public class Xwing  implements IHeuristic {
 		}
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 }

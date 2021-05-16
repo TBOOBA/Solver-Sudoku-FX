@@ -15,7 +15,7 @@ import model.Cell;
 
 import model.Grid;
 
-public class IsolatedGroups  implements IHeuristic {
+public class IsolatedGroups  {
 	
 	// CONSTANTES
 	
@@ -36,7 +36,7 @@ public class IsolatedGroups  implements IHeuristic {
 
 	// REQUETES
 	///// @@ COMPLETE THE MOVE OBJRCT AS RETURN VAL @NAS
-	@Override
+
 	public Move getSolution() {
 		int size = Grid.size;
 		for (Unity l : Unity.values()) {
@@ -325,11 +325,7 @@ public class IsolatedGroups  implements IHeuristic {
 		return -1;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 
 }

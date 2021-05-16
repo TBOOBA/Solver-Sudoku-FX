@@ -12,7 +12,7 @@ import model.Cell;
 import model.Grid;
 import model.StdGrid;
 
-public class Coloring  implements IHeuristic {
+public class Coloring   {
 
 	// CONSTANTES
 	
@@ -44,7 +44,7 @@ public class Coloring  implements IHeuristic {
 	
 	// REQUETES
 	
-	@Override
+	
 	public Move getSolution() {
 		for (Unity u : Unity.values()) {
 			for (String cand : StdGrid.defaultValueSet()) {
@@ -527,9 +527,6 @@ public class Coloring  implements IHeuristic {
 		}
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 
+
 }

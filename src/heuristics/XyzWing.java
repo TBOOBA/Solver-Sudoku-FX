@@ -12,7 +12,7 @@ import model.Coordinate;
 import model.Grid;
 import model.StdGrid;
 
-public class XyzWing  implements IHeuristic {
+public class XyzWing{
 
 	private Map<String, Integer> mapStrings;
 	private Map<Integer, String> mapValues;
@@ -25,7 +25,7 @@ public class XyzWing  implements IHeuristic {
 		setMapValues(StdGrid.defaultValueSet());
 	}
 
-	@Override
+	 
 	public Move getSolution() {
 		
 		
@@ -413,12 +413,6 @@ public class XyzWing  implements IHeuristic {
 			mapValues.put(i, s);
 			++i;
 		}
-	}
-
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 

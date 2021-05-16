@@ -6,7 +6,7 @@ import cmd.Move;
 import model.Cell;
 import model.Grid;
 
-public class InteractionsBetweenRegion implements IHeuristic {
+public class InteractionsBetweenRegion  {
 	
 	// CONSTANTES
 	
@@ -19,7 +19,7 @@ public class InteractionsBetweenRegion implements IHeuristic {
 	
 	// REQUETES
 	
-	@Override
+	
 	public Move getSolution() {
 		
 		for (int i = 0; i < Grid.size; ++i) {
@@ -208,12 +208,6 @@ public class InteractionsBetweenRegion implements IHeuristic {
 		}
 		return count != 0;
 
-	}
-
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 

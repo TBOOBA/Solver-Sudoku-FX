@@ -16,7 +16,7 @@ import model.StdGrid;
  * @author Nas
  *
  */
-public class Squirmbag  implements IHeuristic {
+public class Squirmbag   {
 
 	// CONSTANTES
 	public static final int MIN_NB_CAND = 2;
@@ -41,7 +41,7 @@ public class Squirmbag  implements IHeuristic {
 	
 	// REQUETES
 
-	@Override
+	 
 	public Move getSolution() {
 
 		for (String cand : StdGrid.defaultValueSet()) {
@@ -349,9 +349,5 @@ public class Squirmbag  implements IHeuristic {
 		return false;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 }

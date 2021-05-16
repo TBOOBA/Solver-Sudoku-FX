@@ -10,13 +10,13 @@ import model.Coordinate;
 import model.Cell;
 import model.Grid;
 
-public class XyWing  implements IHeuristic {
+public class XyWing {
 	private Grid grid;
 	public XyWing(Grid grid) {
 		this.grid = grid;
 	}
 
-	@Override
+	 
 	public Move getSolution() {
 	
 		
@@ -175,11 +175,6 @@ public class XyWing  implements IHeuristic {
 		return value;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 }

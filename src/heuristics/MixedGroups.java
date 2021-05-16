@@ -14,7 +14,7 @@ import model.Cell;
 import model.Grid;
 import model.StdGrid;
 
-public class MixedGroups  implements IHeuristic {
+public class MixedGroups  {
 	
 	// CONSTANTES 
 	
@@ -37,7 +37,7 @@ public class MixedGroups  implements IHeuristic {
 
 	// REQUETES
 	
-	@Override
+	 
 	public Move getSolution() {
 	 
 		for (Unity u : Unity.values()) {
@@ -306,11 +306,7 @@ public class MixedGroups  implements IHeuristic {
 		return -1;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	
 }

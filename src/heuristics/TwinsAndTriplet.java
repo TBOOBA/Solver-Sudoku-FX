@@ -9,14 +9,14 @@ import model.Coordinate;
 import model.Grid;
 import model.StdGrid;
 
-public class TwinsAndTriplet  implements IHeuristic {
+public class TwinsAndTriplet   {
 
 	private Grid grid;
 	public TwinsAndTriplet(Grid grid) {
 		this.grid=grid;
 	}
 
-	@Override
+	 
 	public Move getSolution() {
 		
 		Move move = new Move();
@@ -238,11 +238,8 @@ public class TwinsAndTriplet  implements IHeuristic {
 		return numLine;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 
+
 
 	
 }

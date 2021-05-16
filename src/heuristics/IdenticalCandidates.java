@@ -7,7 +7,7 @@ import cmd.Move;
 import model.Cell;
 import model.Grid;
 
-public class IdenticalCandidates  implements IHeuristic {
+public class IdenticalCandidates   {
 	
 	// CONSTANTES
 	private Grid grid;
@@ -16,7 +16,7 @@ public class IdenticalCandidates  implements IHeuristic {
 		this.grid=grid;
 	}
 
-	@Override
+	
 	public Move getSolution() {
 		int size = Grid.size;
 		// Case (i, j) et regarder les cases (i, k), (k, j) et 
@@ -267,11 +267,6 @@ public class IdenticalCandidates  implements IHeuristic {
 		return false;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	
 }

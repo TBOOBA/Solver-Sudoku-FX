@@ -4,12 +4,12 @@ import model.Grid;
 
 public class CheckerFactory {
 	
-		private static CheckerFactory instance;
+		
 		private Grid deedCopyGrid;
 		private Grid originalGrid;
 		private  Object ok = new Object();
 		
-		private CheckerFactory(Grid grid) {
+		public CheckerFactory(Grid grid) {
 			this.deedCopyGrid = grid.deepCopy(grid);
 			this.originalGrid = grid;
 			this.SolveGrid();
@@ -17,13 +17,7 @@ public class CheckerFactory {
 		public Grid getDeepCopy() {
 			return deedCopyGrid;
 		}
-		public static CheckerFactory getInstance(Grid grid) {
-			if(instance == null) {
-				instance = new CheckerFactory(grid);
-				
-			}
-			return instance;
-		}
+		
 		
 		private void SolveGrid() {
 			synchronized (ok) {

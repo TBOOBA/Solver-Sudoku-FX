@@ -4,7 +4,7 @@ package heuristics;
 import cmd.Move;
 import model.*;
 
-public class OneCandidate  implements IHeuristic {
+public class OneCandidate   {
 
 	
 	private StdGrid grid;
@@ -17,7 +17,7 @@ public class OneCandidate  implements IHeuristic {
 	 * si la cellule contient un seul candidat
 	 * cette candidat sera considérer comme valeur finale de la cellule 
 	 * */
-	@Override
+	 
 	public Move getSolution() {
 	
 		Move move = new Move();
@@ -54,11 +54,8 @@ public class OneCandidate  implements IHeuristic {
 	
 	
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 
+
 
 
 }

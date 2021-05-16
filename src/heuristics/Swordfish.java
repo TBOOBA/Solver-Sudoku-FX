@@ -17,7 +17,7 @@ import model.StdGrid;
  * @author Nas
  *
  */
-public class Swordfish  implements IHeuristic {
+public class Swordfish   {
 
 	// CONSTANTES
 	
@@ -44,7 +44,7 @@ public class Swordfish  implements IHeuristic {
 	
 	// REQUETES
 
-	@Override
+	 
 	public Move getSolution() {
 
 		for (String cand : StdGrid.defaultValueSet()) {
@@ -384,9 +384,5 @@ public class Swordfish  implements IHeuristic {
 		return false;
 	}
 
-	@Override
-	public int getLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	 
 }
